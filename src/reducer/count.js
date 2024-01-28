@@ -11,6 +11,7 @@ export const countReducer = (state, action) => {
     case RESET:
       return initialCountState;
     default:
+      console.log("olmayan kısım");
       return state;
   }
 };
