@@ -1,10 +1,17 @@
-import React, { useReducer } from "react";
-import { ADD_TODO, REMOVE_TODO, initial, todoReducer } from "./reducer/todo";
+import React, { useContext, useReducer } from "react";
+import { ADD_TODO } from "./reducer/todo";
+import { SiteContext } from "./context/SiteContext";
+import Todos from "./Todos";
 
 function AddTodo() {
-  const [state, dispatch] = useReducer(todoReducer, initial);
+  const {
+    todos: { state, dispatch },
+  } = useContext(SiteContext);
+
   console.log("state" + state);
+
   console.log("dispatch" + dispatch);
+
   function handleSubmit(event) {
     event.preventDefault();
     const inputValue = event.target.elements[0].value;
@@ -17,17 +24,7 @@ function AddTodo() {
         <input type="text" placeholder="todo bilgisini giriniz" />
         <button type="submit">Ekle</button>
       </form>
-
-      <ul>
-        {state?.todos?.map((item) => (
-          <li
-            key={item.id}
-            onClick={() => dispatch({ type: REMOVE_TODO, payload: item.id })}
-          >
-            {item.id}---{item.title}
-          </li>
-        ))}
-      </ul>
+      <Todos />
     </>
   );
 }
