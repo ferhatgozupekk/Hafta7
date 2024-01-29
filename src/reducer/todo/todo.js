@@ -6,10 +6,9 @@ export const initial = {
 };
 
 export const todoReducer = (state, action) => {
-  switch (action) {
+  switch (action.type) {
     case ADD_TODO:
-      console.log(ADD_TODO, state);
-      return state;
+      return { ...state, todos: [...state.todos, action.payload] };
     case REMOVE_TODO:
       console.log(REMOVE_TODO);
       return state;
@@ -17,7 +16,7 @@ export const todoReducer = (state, action) => {
       console.log(RESET);
       return initial;
     default:
-      console.log("Default State");
+      console.log("Default State", action);
       return state;
   }
 };

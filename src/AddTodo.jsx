@@ -7,8 +7,9 @@ function AddTodo() {
   console.log("dispatch" + dispatch);
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target.elements[0]);
-    dispatch(ADD_TODO);
+    const inputValue = event.target.elements[0].value;
+    dispatch({ type: ADD_TODO, payload: inputValue });
+    event.target.reset();
   }
   return (
     <>
@@ -16,6 +17,12 @@ function AddTodo() {
         <input type="text" placeholder="todo bilgisini giriniz" />
         <button type="submit">Ekle</button>
       </form>
+
+      <ul>
+        {state?.todos?.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </>
   );
 }
