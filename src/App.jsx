@@ -8,6 +8,7 @@ import {
   initialCountState,
 } from "./reducer";
 import { SiteContext } from "./context/SiteContext";
+import ContextAboutPage from "./ContextAboutPage";
 
 function App() {
   // const [count, dispatch] = useReducer(countReducer, initialCountState);
@@ -23,6 +24,11 @@ function App() {
       <button onClick={() => dispatch(INCREMENT)}>arttır</button>
       <button onClick={() => dispatch(DECREMENT)}>azalt</button>
       <button onClick={() => dispatch(RESET)}>sıfırla</button>
+      <hr />
+      <hr />
+      <ContextAboutPage />
+      <hr />
+      <hr />
       <About />
     </>
   );
