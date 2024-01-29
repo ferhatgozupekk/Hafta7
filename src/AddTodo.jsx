@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { ADD_TODO, initial, todoReducer } from "./reducer/todo";
+import { ADD_TODO, REMOVE_TODO, initial, todoReducer } from "./reducer/todo";
 
 function AddTodo() {
   const [state, dispatch] = useReducer(todoReducer, initial);
@@ -20,7 +20,12 @@ function AddTodo() {
 
       <ul>
         {state?.todos?.map((item) => (
-          <li key={item.id}>{item.title}</li>
+          <li
+            key={item.id}
+            onClick={() => dispatch({ type: REMOVE_TODO, payload: item.id })}
+          >
+            {item.id}---{item.title}
+          </li>
         ))}
       </ul>
     </>

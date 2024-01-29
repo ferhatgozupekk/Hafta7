@@ -14,8 +14,10 @@ export const todoReducer = (state, action) => {
         todos: [...state.todos, { id: uuidv4(), title: action.payload }],
       };
     case REMOVE_TODO:
-      console.log(REMOVE_TODO);
-      return state;
+      const filteredTodos = state.todos.filter(
+        (item) => item.id != action.payload
+      );
+      return { ...state, todos: filteredTodos };
     case RESET:
       console.log(RESET);
       return initial;
