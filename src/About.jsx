@@ -5,7 +5,7 @@ import {
   RESET,
   countReducer,
   initialCountState,
-} from "./reducer";
+} from "./reducer/counter";
 
 export default function About() {
   const [count, dispatch] = useReducer(countReducer, initialCountState);

@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import { countReducer, initialCountState } from "../reducer";
+import { countReducer, initialCountState } from "../reducer/counter";
 
 const SiteContext = createContext();
 
