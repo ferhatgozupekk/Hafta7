@@ -1,4 +1,5 @@
 import { ADD_TODO, REMOVE_TODO, RESET } from "./actionType";
+import { v4 as uuidv4 } from "uuid";
 
 export const initial = {
   todos: [],
@@ -8,7 +9,10 @@ export const initial = {
 export const todoReducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return { ...state, todos: [...state.todos, action.payload] };
+      return {
+        ...state,
+        todos: [...state.todos, { id: uuidv4(), title: action.payload }],
+      };
     case REMOVE_TODO:
       console.log(REMOVE_TODO);
       return state;

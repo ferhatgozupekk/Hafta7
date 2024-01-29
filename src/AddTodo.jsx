@@ -19,8 +19,8 @@ function AddTodo() {
       </form>
 
       <ul>
-        {state?.todos?.map((item, index) => (
-          <li key={index}>{item}</li>
+        {state?.todos?.map((item) => (
+          <li key={item.id}>{item.title}</li>
         ))}
       </ul>
     </>
